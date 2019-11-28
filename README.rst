@@ -1,6 +1,12 @@
 .. image:: https://api.codacy.com/project/badge/Grade/5a09a21296eb4f1ba84d1abb232267d9
     :target: https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=felixriese/thermal-image-processing&amp;utm_campaign=Badge_Grade
     :alt: Codacy
+.. image:: https://img.shields.io/github/license/felixriese/thermal-image-processing
+    :target: LICENSE
+    :alt: BSD-3-License
+.. image:: https://img.shields.io/badge/DOI-10.5194%2Fisprs--annals--IV--1--101--2018-blue
+    :target: https://doi.org/10.5194/isprs-annals-IV-1-101-2018
+    :alt: Publication
 
 Processing Scripts for Thermal Infrared camera
 ===============================================
