@@ -70,6 +70,9 @@ Spatial Information Sciences, vol. IV-1, pp. 101–108, 2018.
 
 **Code**
 
+F. M. Riese, “Processing Scripts for Thermal Infrared Cameras,"
+doi.org/10.5281/zenodo.3576242, 2019.
+
 .. code:: bibtex
 
     @misc{riese2019processing,
