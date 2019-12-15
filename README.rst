@@ -4,12 +4,12 @@
 .. image:: https://img.shields.io/github/license/felixriese/thermal-image-processing
     :target: LICENSE
     :alt: BSD-3-License
-.. image:: https://img.shields.io/badge/DOI-10.5194%2Fisprs--annals--IV--1--101--2018-blue
-    :target: https://doi.org/10.5194/isprs-annals-IV-1-101-2018
-    :alt: Publication
+.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3576242.svg
+   :target: https://doi.org/10.5281/zenodo.3576242
+   :alt: Zenodo
 
-Processing Scripts for Thermal Infrared camera
-===============================================
+Processing Scripts for Thermal Infrared Cameras
+================================================
 
 Functions and scripts for thermal images like the ones of the camera FLIR Tau
 2.
@@ -42,6 +42,10 @@ Workflow
 Citation
 --------
 
+A bibtex file is available `here <bibliography.bib>`_.
+
+**Paper**
+
 S. Keller, F. M. Riese, J. Stötzer, P. M. Maier, and S. Hinz, “Developing
 a machine learning framework for estimating soil moisture with VNIR
 hyperspectral data,” ISPRS Annals of Photogrammetry, Remote Sensing and
@@ -64,4 +68,15 @@ Spatial Information Sciences, vol. IV-1, pp. 101–108, 2018.
         doi = {10.5194/isprs-annals-IV-1-101-2018}
     }
 
-A bibtex file is available `here <bibliography.bib>`_.
+**Code**
+
+.. code:: bibtex
+
+    @misc{riese2019processing,
+        author = {Riese, Felix~M.},
+        title = {{Processing Scripts for Thermal Infrared Cameras}},
+        year = {2019},
+        DOI = {10.5281/zenodo.3576242},
+        publisher = {Zenodo},
+        howpublished = {\href{https://doi.org/10.5281/zenodo.3576242}{doi.org/10.5281/zenodo.3576242}}
+    }
