@@ -1,10 +1,8 @@
-#!/usr/bin/env python3
 """Export data (timelapse) from IR camera frames to CSV."""
 
 import csv
 
-import ir_utils as ir
-
+from .IRUtils import processIRTimelapse
 
 if __name__ == "__main__":
 
@@ -25,7 +23,7 @@ if __name__ == "__main__":
             meas_dict.setdefault(c, []).append(v)
 
     for i, inputfile in enumerate(meas_dict["File"]):
-        ir.processIRTimelapse(
+        processIRTimelapse(
             inputfile=inputfile,
             rotation=meas_dict["Rotation"][i],
             exportpath=export_path,

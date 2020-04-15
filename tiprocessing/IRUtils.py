@@ -328,9 +328,9 @@ def getIRDataFromMultipleZones(csvpath, positions, numberOfZones):
     df = pd.read_csv(csvpath, delimiter=";")
     df = df.dropna(axis=1, how='all')
 
-    plt.clf()
-    _, ax = plt.subplots(1)
-    ax.imshow(df)
+    # plt.clf()
+    # _, ax = plt.subplots(1)
+    # ax.imshow(df)
 
     irdata_dict = {"ir_date": date, "ir_time": time,
                    "ir_folder": folder, "ir_filenumber": filenumber}
@@ -342,9 +342,9 @@ def getIRDataFromMultipleZones(csvpath, positions, numberOfZones):
         y = positions["zone"+str(i)+"_row_start"][indexOfDataset]
         width = positions["zone"+str(i)+"_col_end"][indexOfDataset] - x
         height = positions["zone"+str(i)+"_row_end"][indexOfDataset] - y
-        rect = patches.Rectangle((x, y), width, height, linewidth=1,
-                                 edgecolor='r', facecolor='none')
-        ax.add_patch(rect)
+        # rect = patches.Rectangle((x, y), width, height, linewidth=1,
+        #                          edgecolor='r', facecolor='none')
+        # ax.add_patch(rect)
 
         ir_data = getIRDataFromZone(image=df.values.tolist(),
                                     positions=positions,
@@ -355,8 +355,6 @@ def getIRDataFromMultipleZones(csvpath, positions, numberOfZones):
         irdata_dict["ir_zone"+str(i)+"_std"] = [ir_data[2]]
 
     # plt.show()
-    # sys.exit(0)
-    plt.close('all')
     return pd.DataFrame(irdata_dict)
 
 

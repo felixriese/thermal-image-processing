@@ -1,10 +1,8 @@
-#!/usr/bin/env python3
 """Export data (movie) from IR camera frames to CSV."""
 
 import glob
 
-import ir_utils as ir
-
+from .IRUtils import processIRMovie
 
 if __name__ == "__main__":
 
@@ -25,6 +23,6 @@ if __name__ == "__main__":
 
         for inputfolder in glob.glob(input_dir + measurement):
 
-            ir.processIRMovie(measurement, rotation, inputfolder,
-                              export_path, timeshift=timeshift,
-                              doRotation=True, doRenaming=True)
+            processIRMovie(measurement, rotation, inputfolder,
+                           export_path, timeshift=timeshift,
+                           doRotation=True, doRenaming=True)

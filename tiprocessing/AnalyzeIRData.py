@@ -1,14 +1,13 @@
-#!/usr/bin/env python3
 """Analyze data from IR data from CSV to CSV."""
 
 import glob
 import pandas as pd
 
-import ir_utils as ir
+from .IRUtils import getIRDataFromMultipleZones, getPositionInformation
 
 if __name__ == "__main__":
     inputFolder = "path/to/IRExport/"
-    positions, numberOfZones = ir.getPositionInformation("positions.csv")
+    positions, numberOfZones = getPositionInformation("positions.csv")
     numberOfFiles = len(glob.glob(inputFolder + "ir_export_*.csv"))
 
     # get mean, std deviation and median for each box
@@ -18,7 +17,7 @@ if __name__ == "__main__":
         if i % 100 == 0:
             print("File %i of %i analyzed." % (i, numberOfFiles))
 
-        ir_data = ir.getIRDataFromMultipleZones(csvfile, positions,
+        ir_data = getIRDataFromMultipleZones(csvfile, positions,
                                                 numberOfZones)
         df_ir = df_ir.append(ir_data, ignore_index=True)
         # sys.exit()
