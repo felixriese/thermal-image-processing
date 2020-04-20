@@ -303,7 +303,9 @@ def rotateCSVFile180(csvpath):
             writer.writerow(row)
 
 
-def getIRDataFromMultipleZones(csvpath, positions, numberOfZones):
+def getIRDataFromMultipleZones(csvpath: str,
+                               positions: dict,
+                               zone_list: list):
     """Get IR data from multiple zones.
 
     Parameters
@@ -312,8 +314,8 @@ def getIRDataFromMultipleZones(csvpath, positions, numberOfZones):
         Path to CSV file
     positions : dict
         Dictionary containing the positions (row, column) of the zones per date
-    numberOfZones : int
-        Number of zones
+    zone_list : list of str
+        List of zones
 
     Returns
     -------
@@ -323,6 +325,7 @@ def getIRDataFromMultipleZones(csvpath, positions, numberOfZones):
     """
     filename = os.path.basename(os.path.normpath(csvpath))
     date, time, folder, filenumber = getFileInfo(filename)
+    positions["measurement"] = [str(x) for x in positions["measurement"]]
     indexOfDataset = positions["measurement"].index(date)
 
     df = pd.read_csv(csvpath, delimiter=";")
@@ -336,29 +339,29 @@ def getIRDataFromMultipleZones(csvpath, positions, numberOfZones):
                    "ir_folder": folder, "ir_filenumber": filenumber}
 
     # add all x zones
-    for i in range(1, numberOfZones+1):
+    for zone in zone_list:
         # (x, y) is the upper left point
-        x = positions["zone"+str(i)+"_col_start"][indexOfDataset]
-        y = positions["zone"+str(i)+"_row_start"][indexOfDataset]
-        width = positions["zone"+str(i)+"_col_end"][indexOfDataset] - x
-        height = positions["zone"+str(i)+"_row_end"][indexOfDataset] - y
+        # x = positions["zone"+str(i)+"_col_start"][indexOfDataset]
+        # y = positions["zone"+str(i)+"_row_start"][indexOfDataset]
+        # width = positions["zone"+str(i)+"_col_end"][indexOfDataset] - x
+        # height = positions["zone"+str(i)+"_row_end"][indexOfDataset] - y
         # rect = patches.Rectangle((x, y), width, height, linewidth=1,
         #                          edgecolor='r', facecolor='none')
         # ax.add_patch(rect)
 
         ir_data = getIRDataFromZone(image=df.values.tolist(),
                                     positions=positions,
-                                    zone_name="zone"+str(i),
+                                    zone_name=zone,
                                     iod=indexOfDataset)
-        irdata_dict["ir_zone"+str(i)+"_med"] = [ir_data[0]]
-        irdata_dict["ir_zone"+str(i)+"_mean"] = [ir_data[1]]
-        irdata_dict["ir_zone"+str(i)+"_std"] = [ir_data[2]]
+        irdata_dict["ir_"+zone+"_med"] = [ir_data[0]]
+        irdata_dict["ir_"+zone+"_mean"] = [ir_data[1]]
+        irdata_dict["ir_"+zone+"_std"] = [ir_data[2]]
 
     # plt.show()
     return pd.DataFrame(irdata_dict)
 
 
-def getIRDataFromZone(image, positions, zone_name, iod):
+def getIRDataFromZone(image: list, positions: dict, zone_name: str, iod: int):
     """Get IR data from one specific zone.
 
     Parameters
@@ -428,7 +431,7 @@ def getPositionInformation(position_path):
     return pos_info, numberOfZones
 
 
-def getFileInfo(filename):
+def getFileInfo(filename: str):
     """Get file information from filename.
 
     Parameters
