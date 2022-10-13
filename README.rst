@@ -83,3 +83,23 @@ doi.org/10.5281/zenodo.3576242, 2019.
         publisher = {Zenodo},
         howpublished = {\href{https://doi.org/10.5281/zenodo.3576242}{doi.org/10.5281/zenodo.3576242}}
     }
+
+**Dataset:**
+
+S. Keller, F. M. Riese, N. Allroggen, and C. Jackisch, "HydReSGeo: Field
+experiment dataset of surface-subsurface infiltration dynamics acquired by
+hydrological, remote sensing, and geophysical measurement techniques," GFZ Data
+Services, 2020. `DOI:10.5880/fidgeo.2020.015 <https://doi.org/10.5880/fidgeo.2020.015>`_
+
+.. code:: bibtex
+
+    @misc{keller2020hydresgeo,
+        author = {Keller, Sina and Riese, Felix~M. and Allroggen, Niklas and
+                  Jackisch, Conrad},
+        title = {{HydReSGeo: Field experiment dataset of surface-subsurface
+                  infiltration dynamics acquired by hydrological, remote
+                  sensing, and geophysical measurement techniques}},
+        year = {2020},
+        publisher = {GFZ Data Services},
+        DOI = {10.5880/fidgeo.2020.015},
+    }
